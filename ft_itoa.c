@@ -6,16 +6,11 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:47:28 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 13:54:10 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:38:42 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-char	*ft_strdup(const char *s1);
+#include "ft_printf.h"
 
 static void	ft_char_cpy(char *dest, char src, int *position)
 {

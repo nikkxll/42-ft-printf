@@ -6,12 +6,11 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:12 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 13:50:28 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:32:26 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#include "ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

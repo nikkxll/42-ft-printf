@@ -6,13 +6,11 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:07:22 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 15:50:41 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:39:58 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 static void	ft_char_cpy(char *dest, char src, int *position)
 {
@@ -31,7 +29,6 @@ static int	ft_hex_len(unsigned long long int nb)
 	}
 	return (i);
 }
-
 
 static void	ft_ptr_puthex(char *str, unsigned long long int nb, int *position)
 {
@@ -68,12 +65,3 @@ char	*ft_ptr_to_hex(void *ptr)
 	str[position] = '\0';
 	return (str);
 }
-
-// int main() {
-//     void *ptr = (void*)"derfefred";
-// 	char *str;
-//     str = ft_ptr_to_hex(ptr);
-//     printf("%p", ptr);
-
-//     return 0;
-// }

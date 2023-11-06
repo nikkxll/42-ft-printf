@@ -6,13 +6,11 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:08:15 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 13:55:34 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:32:04 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 static void	ft_char_cpy(char *dest, char src, int *position)
 {

@@ -6,12 +6,11 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:04:02 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 11:21:21 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:38:32 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "ft_printf.h"
 
 static void	ft_uns_char_cpy(char *dest, char src, int *position)
 {
@@ -59,4 +58,3 @@ char	*ft_unsigned_to_str(unsigned int n)
 	str[position] = '\0';
 	return (str);
 }
-
