@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:09:17 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 14:35:23 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:48:01 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_putperc_fd(char c, int fd);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 void	ft_putchar_fd(char c, int fd);
+char	*ft_ptr_to_hex(void *ptr);
 
 int ft_printf(const char *str, ...)
 {
@@ -40,8 +41,8 @@ int ft_printf(const char *str, ...)
    else if (*str == 's')
     ft_putstr_fd(va_arg(args, char *), 1);
 
-//    else if (*str == 'p')
-//     printf("%p", va_arg(args, void *));
+   else if (*str == 'p')
+    ft_putstr_fd(ft_ptr_to_hex(va_arg(args, void *)), 1);
 
    else if (*str == 'd' || *str == 'i')
     ft_putstr_fd(ft_itoa(va_arg(args, int)), 1);
@@ -90,7 +91,7 @@ int main(void)
     ft_printf("This is an unsigned integer: %u\n", u_num);
     printf("This is an unsigned integer: %u\n", u_num);
     
-    // ft_printf("This is a pointer: %p\n", ptr);
+    ft_printf("This is a pointer: %p\n", ptr);
     printf("This is a pointer: %p\n", ptr);
     
     ft_printf("Hexadecimal number (lowercase): %x\n", num);
