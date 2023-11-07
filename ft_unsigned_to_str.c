@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:04:02 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 16:38:32 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:12:13 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_uns_str_extractor(char *str, unsigned int nb, int *position)
 	}
 }
 
-char	*ft_unsigned_to_str(unsigned int n)
+int	ft_unsigned_to_str(unsigned int n)
 {
 	char	*str;
 	int		len;
@@ -52,9 +52,15 @@ char	*ft_unsigned_to_str(unsigned int n)
 	len = ft_uns_num_len(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
-		return (NULL);
+		return (-1);
 	position = 0;
 	ft_uns_str_extractor(str, n, &position);
 	str[position] = '\0';
-	return (str);
+	if (ft_putstr_fd(str, 1) < 0)
+	{
+		free(str);
+		return (-1);
+	}
+	free(str);
+	return (len);
 }

@@ -6,32 +6,40 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:12 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 16:32:26 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:07:50 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	return (write(fd, &c, 1));
 }
 
-void	ft_putperc_fd(char c, int fd)
+int	ft_putperc_fd(int fd)
 {
-	write(fd, "%", 1);
+	return (write(fd, "%", 1));
 }
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
+	int	len;
+
+	len = 0;
+	if (s == NULL)
 	{
-		return ;
+		if (ft_putstr_fd("(null)", fd) < 0)
+			return (-1);
+		return (6);
 	}
 	while (*s)
 	{
-		ft_putchar_fd(*s++, fd);
+		if (ft_putchar_fd(*s++, fd) < 0)
+			return (-1);
+		len++;
 	}
+	return (len);
 }
 
 size_t	ft_strlen(const char *s)
@@ -61,4 +69,20 @@ char	*ft_strdup(const char *s1)
 	}
 	*dest = '\0';
 	return (ptr);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
 }

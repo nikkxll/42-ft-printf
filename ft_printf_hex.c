@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:08:15 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/06 16:32:04 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:12:05 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static void	ft_char_cpy(char *dest, char src, int *position)
 	dest[(*position)++] = src;
 }
 
-static int	ft_hex_len(int nb)
+static int	ft_hex_len(unsigned int nb)
 {
 	int	i;
 
 	i = 1;
-	while (nb > 16)
+	while (nb >= 16)
 	{
 		nb /= 16;
 		i++;
@@ -49,7 +49,7 @@ static void	ft_puthex(char *str, unsigned int nb, int *position, char format)
 	}
 }
 
-char	*ft_to_hex(unsigned int n, char format)
+int	ft_to_hex(unsigned int n, char format)
 {
 	char	*str;
 	int		len;
@@ -59,8 +59,14 @@ char	*ft_to_hex(unsigned int n, char format)
 	len = ft_hex_len(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
-		return (NULL);
+		return (-1);
 	ft_puthex(str, n, &position, format);
 	str[position] = '\0';
-	return (str);
+	if (ft_putstr_fd(str, 1) < 0)
+	{
+		free(str);
+		return (-1);
+	}
+	free(str);
+	return (len);
 }
