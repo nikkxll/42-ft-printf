@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:47:28 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/07 20:20:40 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/08 10:26:20 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,11 @@ int	ft_itoa_write(int n)
 	char	*str;
 	int		len;
 	int		position;
-	int		dup;
 
 	if (n == -2147483648)
 	{
-		dup = ft_putstr_fd("-2147483648", 1);
-		if (dup < 0)
-		{
+		if (ft_putstr_fd_printf("-2147483648", 1) < 0)
 			return (-1);
-		}
 		return (11);
 	}
 	len = ft_num_len(n);
@@ -76,7 +72,7 @@ int	ft_itoa_write(int n)
 	position = 0;
 	ft_str_extractor(str, n, &position);
 	str[position] = '\0';
-	if (ft_putstr_fd(str, 1) < 0)
+	if (ft_putstr_fd_printf(str, 1) < 0)
 	{
 		free(str);
 		return (-1);

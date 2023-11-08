@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:04:02 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/07 20:12:13 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/08 10:28:05 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_unsigned_to_str(unsigned int n)
 	position = 0;
 	ft_uns_str_extractor(str, n, &position);
 	str[position] = '\0';
-	if (ft_putstr_fd(str, 1) < 0)
+	if (ft_putstr_fd_printf(str, 1) < 0)
 	{
 		free(str);
 		return (-1);

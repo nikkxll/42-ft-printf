@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:08:15 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/07 20:12:05 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/08 10:26:25 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_to_hex(unsigned int n, char format)
 		return (-1);
 	ft_puthex(str, n, &position, format);
 	str[position] = '\0';
-	if (ft_putstr_fd(str, 1) < 0)
+	if (ft_putstr_fd_printf(str, 1) < 0)
 	{
 		free(str);
 		return (-1);

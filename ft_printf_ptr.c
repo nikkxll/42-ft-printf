@@ -6,7 +6,7 @@
 /*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:07:22 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/07 20:12:09 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/11/08 10:26:35 by dnikifor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_ptr_to_hex(void *ptr)
 	str[1] = 'x';
 	ft_ptr_puthex(str, ptr_val, &position);
 	str[position] = '\0';
-	if (ft_putstr_fd(str, 1) < 0)
+	if (ft_putstr_fd_printf(str, 1) < 0)
 	{
 		free(str);
 		return (-1);
