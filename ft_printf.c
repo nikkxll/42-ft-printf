@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnikifor <dnikifor@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: dmitriinikiforov <dmitriinikiforov@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:09:17 by dnikifor          #+#    #+#             */
-/*   Updated: 2023/11/08 10:27:38 by dnikifor         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:39:08 by dmitriiniki      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,12 @@ static int	ft_formats_check(const char *str, va_list args)
 	return (0);
 }
 
-int	ft_printf(const char *str, ...)
+static int	string_loop(const char *str, va_list args)
 {
-	va_list	args;
-	int		length;
-	int		temp;
-
+	int	length;
+	int	temp;
+	
 	length = 0;
-	va_start(args, str);
 	while (*str)
 	{
 		if (*str == '%' && ft_strchr("cspdiuxX%", *(1 + str++)))
@@ -58,6 +56,17 @@ int	ft_printf(const char *str, ...)
 		}
 		str++;
 	}
+	return (length);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	args;
+	int		length;
+
+	length = 0;
+	va_start(args, str);
+	length = string_loop(str, args);
 	va_end(args);
 	return (length);
 }
